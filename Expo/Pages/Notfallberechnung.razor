@@ -1,0 +1,16 @@
+@page "/notfallberechnung"
+ 
+<div class="row">
+    <div class="row">
+        <div class="col-5">
+            <button @onclick="CreateChartAsync">Create Chart</button>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-5">            
+            <ImageViewer Url="@currentChartPath" FitMode="ObjectFitMode.Fill" />
+        </div>
+    </div>
+</div>
