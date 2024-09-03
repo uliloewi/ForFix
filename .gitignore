@@ -19,7 +19,6 @@ fort.*
 *.txt
 *.u2d
 *isos
-wwwroot/
 
 # Build results
 [Dd]ebug/
