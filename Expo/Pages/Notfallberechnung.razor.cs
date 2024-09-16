@@ -7,6 +7,18 @@ namespace Expo.Pages
     public partial class Notfallberechnung : ComponentBase
     {
         private string currentChartPath;
+
+        protected override async Task OnInitializedAsync()
+        {
+            string sub = Path.Combine(AppContext.BaseDirectory, "wwwroot", "chart");
+            if (Directory.Exists(sub))
+            {
+                var fileName = Path.Combine(sub, "Mode-5000.bmp");
+                if (File.Exists(fileName))
+                    currentChartPath = "./chart/Mode-5000.bmp";
+            }
+        }
+        
         public async void CreateChartAsync()
         {
             var n = new Bitmap(314, 314);
@@ -23,8 +35,8 @@ namespace Expo.Pages
             }
             var fileName = Path.Combine(sub, "Mode-5000.bmp");
             n.Save(fileName, System.Drawing.Imaging.ImageFormat.Jpeg);
-            StateHasChanged();
             currentChartPath = "./chart/Mode-5000.bmp";
+            StateHasChanged();
         }
     }
 }
